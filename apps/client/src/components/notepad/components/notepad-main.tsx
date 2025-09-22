@@ -1,14 +1,3 @@
-/**
- * Main notepad component that provides collaborative Markdown editing.
- * Features:
- * - Real-time collaborative editing
- * - Rich text formatting tools
- * - Markdown syntax support
- * - Image and table insertion
- *
- * By Himanshu rana .
- */
-
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";

@@ -1,13 +1,3 @@
-/**
- * Transform GitHub branch data into tree structure for repository browser.
- * Features:
- * - Branch data transformation
- * - Tree item icon mapping
- * - Type-safe conversion
- *
- * By Himanshu rana .
- */
-
 import { GitBranch } from "lucide-react";
 
 import type { GithubBranch } from "../types/github";

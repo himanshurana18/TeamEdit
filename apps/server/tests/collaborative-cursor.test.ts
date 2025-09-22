@@ -1,10 +1,3 @@
-/**
- * Tests for measuring cursor synchronization latency in collaborative editing.
- * Tests both simple cursor movements and selection operations.
- *
- * By Himanshu rana .
- */
-
 import fs from "fs";
 import path from "path";
 import { performance } from "perf_hooks";

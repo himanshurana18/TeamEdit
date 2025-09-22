@@ -1,13 +1,3 @@
-/**
- * Custom hook for handling room joining form state.
- * Features:
- * - Form validation with Zod
- * - Room ID validation
- * - Default values handling
- *
- * By Himanshu rana .
- */
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 

@@ -1,20 +1,7 @@
-/**
- * GitHub API route handler for fetching repository resources.
- * Provides:
- * - Branch listing
- * - File/directory contents
- * - Authentication validation
- * - Error handling
- *
- * By Himanshu rana .
- */
-
 import { cookies } from "next/headers";
 import type { NextRequest } from "next/server";
 
 import { GITHUB_API_URL } from "@/lib/constants";
-
-// export const runtime = 'edge';
 
 export async function GET(
   req: NextRequest,

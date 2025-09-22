@@ -1,12 +1,3 @@
-/**
- * Cleanup script for removing build artifacts and node_modules.
- * Features:
- * - Directory cleanup
- * - Interactive prompts
- * - Process cleanup
-
- */
-
 const fs = require("fs/promises");
 const path = require("path");
 const readline = require("readline");

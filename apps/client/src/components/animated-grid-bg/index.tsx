@@ -1,14 +1,3 @@
-/**
- * Animated grid background component with parallax effect and moving lights.
- * Features:
- * - Responsive grid layout
- * - Animated light trails
- * - Mouse-based parallax
- * - Dynamic sizing
- *
- * By Himanshu rana .
- */
-
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
@@ -37,26 +26,21 @@ const AnimatedGridBackground = () => {
 
   const [lights, setLights] = useState<Light[]>([]);
 
-  // Motion values for parallax effect
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Smooth spring animation for mouse movement
   const springConfig = { damping: 25, stiffness: 150 };
   const smoothX: MotionValue = useSpring(mouseX, springConfig);
   const smoothY: MotionValue = useSpring(mouseY, springConfig);
 
-  // Transform mouse position into grid movement
   const gridX = useTransform(smoothX, [-1, 1], [-20, 20]);
   const gridY = useTransform(smoothY, [-1, 1], [-20, 20]);
 
-  // Handle mouse movement
   const handleMouseMove = useCallback(
     (e: MouseEvent): void => {
       const { clientX, clientY } = e;
       const { innerWidth, innerHeight } = window;
 
-      // Convert mouse position to normalized coordinates (-1 to 1)
       const x = (clientX / innerWidth) * 2 - 1;
       const y = (clientY / innerHeight) * 2 - 1;
 
@@ -66,7 +50,6 @@ const AnimatedGridBackground = () => {
     [mouseX, mouseY]
   );
 
-  // Generate a random light
   const generateLight = useCallback((): Light => {
     const isHorizontal = Math.random() > 0.5;
     const duration = Math.random() * 1.5 + (isDesktop ? 2.5 : 2);
@@ -88,7 +71,6 @@ const AnimatedGridBackground = () => {
     }
   }, [gridConfig.rows, gridConfig.cols, isDesktop]);
 
-  // Spawn new lights periodically
   useEffect(() => {
     const spawnLight = () => {
       setLights((prevLights) => {
@@ -110,10 +92,8 @@ const AnimatedGridBackground = () => {
     return () => clearInterval(interval);
   }, [generateLight, isDesktop]);
 
-  // Responsive grid adjustments with parallax on all screen sizes
   useEffect(() => {
     const updateGridDimensions = () => {
-      // Add extra columns and rows to account for parallax movement
       const parallaxPadding = 40;
       const width = window.innerWidth + parallaxPadding * 2;
       const height = window.innerHeight + parallaxPadding * 2;
@@ -129,7 +109,6 @@ const AnimatedGridBackground = () => {
       });
     };
 
-    // Enable parallax on all screen sizes
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("resize", updateGridDimensions);
     updateGridDimensions();
@@ -150,12 +129,10 @@ const AnimatedGridBackground = () => {
     },
   };
 
-  // Calculate dimensions for light elements
   const trailWidth = isDesktop ? "10rem" : "6rem";
   const trailHeight = isDesktop ? "10rem" : "6rem";
   const glowSize = isDesktop ? "0.75rem" : "0.5rem";
 
-  // Light styles with parallax offset
   const lightStyles: LightStyles = {
     horizontal: {
       trail: {

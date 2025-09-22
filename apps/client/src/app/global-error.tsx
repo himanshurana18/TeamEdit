@@ -1,13 +1,3 @@
-/**
- * Global error boundary component for handling runtime errors.
- * Features:
- * - Error reporting
- * - Recovery options
- * - Development error details
- *
- * By Himanshu rana .
- */
-
 "use client";
 
 import { useEffect } from "react";

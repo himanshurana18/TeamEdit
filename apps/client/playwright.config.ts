@@ -1,13 +1,3 @@
-/**
- * Playwright test configuration for end-to-end testing.
- * Features:
- * - Parallel test execution
- * - Retries and timeouts
- * - Multi-browser support
- * - Screenshot and trace capture
-
- */
-
 import path from "path";
 
 import { defineConfig, devices } from "@playwright/test";
@@ -17,22 +7,22 @@ dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 export default defineConfig({
   testDir: "./tests/e2e",
-  fullyParallel: true, // Run tests in files in parallel
-  forbidOnly: !!process.env.CI, // Fail the build on CI if you accidentally left test.only in the source code
-  retries: process.env.CI ? 2 : 0, // Retry on CI only
-  workers: 8, // Number of workers to run the tests
-  reporter: process.env.CI ? [["html"], ["github"]] : "html", // Reporter to use
-  timeout: 120000, // Timeout for each test
+  fullyParallel: true,
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 2 : 0,
+  workers: 8,
+  reporter: process.env.CI ? [["html"], ["github"]] : "html",
+  timeout: 120000,
   expect: {
-    timeout: 30000, // Timeout for each expect
+    timeout: 30000,
   },
-  // Shared settings for all the projects below
+
   use: {
-    baseURL: "http://localhost:3000", // Base URL for all the projects
-    trace: "on-first-retry", // Collect trace when retrying the failed test
-    screenshot: "only-on-failure", // Collect screenshot after each test failure
+    baseURL: "http://localhost:3000",
+    trace: "on-first-retry",
+    screenshot: "only-on-failure",
   },
-  // Configure projects for major browsers
+
   projects: [
     {
       name: "chromium",
@@ -44,7 +34,6 @@ export default defineConfig({
     },
   ],
 
-  // Configure the web server for the test
   webServer: [
     {
       command: process.env.CI

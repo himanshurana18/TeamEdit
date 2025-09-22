@@ -1,13 +1,3 @@
-/**
- * Custom hook for handling GitHub commit form state.
- * Features:
- * - Form validation with Zod
- * - Commit message handling
- * - Default values management
- *
- * By Himanshu rana .
- */
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 

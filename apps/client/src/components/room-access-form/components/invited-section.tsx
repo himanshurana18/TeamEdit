@@ -1,14 +1,3 @@
-/**
- * Room joining form section component for invited users.
- * Features:
- * - Name input validation
- * - Submit handling
- * - Loading states
- * - Error display
- *
- * By Himanshu rana .
- */
-
 import { ArrowRight } from "lucide-react";
 import type {
   FieldErrors,

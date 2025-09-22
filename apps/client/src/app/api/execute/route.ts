@@ -1,15 +1,4 @@
-/**
- * API route handler for executing code submissions.
- * Makes requests to Piston API for code execution with:
- * - Input validation
- * - Request cancellation support
- * - Execution metadata
- * - Error handling
- */
-
 import { NextResponse } from "next/server";
-
-// export const runtime = 'edge';
 
 const PISTON_API_URL = "https://emkc.org/api/v2/piston/execute";
 
@@ -24,7 +13,6 @@ export async function POST(request: Request) {
   try {
     const body: RequestBody = await request.json();
 
-    // Validate request body
     if (!body.code) {
       return NextResponse.json({ error: "Code is required" }, { status: 400 });
     }
@@ -64,7 +52,6 @@ export async function POST(request: Request) {
 
     const data = await response.json();
 
-    // Add execution metadata to response
     const metadata = {
       args: body.args || [],
       stdin: body.stdin || "",
@@ -79,7 +66,7 @@ export async function POST(request: Request) {
     if (error instanceof DOMException && error.name === "AbortError") {
       return NextResponse.json(
         { error: "Code execution cancelled" },
-        { status: 499 } // Using 499 Client Closed Request
+        { status: 499 }
       );
     }
 

@@ -1,13 +1,3 @@
-/**
- * Socket service for handling pointer/cursor position updates.
- * Features:
- * - Real-time pointer sync
- * - Room-based updates
- * - User identity handling
- *
- * By Himanshu rana .
- */
-
 import type { Socket } from "socket.io";
 
 import { PointerServiceMsg } from "@CodeX/types/message";

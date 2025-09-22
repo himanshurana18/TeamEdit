@@ -1,14 +1,3 @@
-/**
- * Room joining form section component that provides room joining functionality.
- * Features:
- * - Room ID validation
- * - Name input validation
- * - Submit handling
- * - Loading states
- *
- * By Himanshu rana .
- */
-
 import { ArrowRight } from "lucide-react";
 import type {
   FieldErrors,

@@ -1,13 +1,3 @@
-/**
- * Help popover component for live preview functionality.
- * Features:
- * - Usage instructions
- * - Pre-installed libraries list
- * - External links
- *
- * By Himanshu rana .
- */
-
 import { CircleHelp } from "lucide-react";
 
 import { PRE_INSTALLED_LIBS } from "@/lib/constants";

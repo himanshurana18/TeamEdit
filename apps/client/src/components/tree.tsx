@@ -1,16 +1,3 @@
-/**
- * Tree view component for displaying hierarchical data.
- * Features:
- * - Item expansion/collapse
- * - Item selection
- * - Loading states
- * - Scrollable interface
- *
- * Modified by Himanshu rana (https://github.com/dulapahv) from a comment
- * on an issue in shadcn-ui/ui by WangLarry (https://github.com/WangLarry).
- * Reference: https://github.com/shadcn-ui/ui/issues/355#issuecomment-1703767574
- */
-
 "use client";
 
 import {

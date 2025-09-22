@@ -1,13 +1,3 @@
-/**
- * Custom hook for detecting media query matches.
- * Features:
- * - Responsive breakpoint detection
- * - Real-time updates
- * - Cleanup on unmount
- *
- * By Himanshu rana .
- */
-
 import { useEffect, useState } from "react";
 
 export const useMediaQuery = (query: string) => {

@@ -1,14 +1,3 @@
-/**
- * WebRTC peer connection utilities for video/audio streaming.
- * Features:
- * - Peer creation and cleanup
- * - Stream handling
- * - Signal processing
- * - Error handling
- *
- * By Himanshu rana .
- */
-
 import type { Dispatch, RefObject, SetStateAction } from "react";
 
 import Peer from "simple-peer";
@@ -19,7 +8,6 @@ import { StreamServiceMsg } from "@CodeX/types/message";
 import { getSocket } from "@/lib/socket";
 import { parseError } from "@/lib/utils";
 
-// Create a new peer connection
 export const createPeer = (
   userID: string,
   initiator: boolean,
@@ -28,18 +16,16 @@ export const createPeer = (
   setRemoteStreams: Dispatch<
     SetStateAction<Record<string, MediaStream | null>>
   >,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   pendingSignalsRef: RefObject<Record<string, any[]>>
 ) => {
   const socket = getSocket();
   try {
-    // Clean up existing peer if it exists
     cleanupPeer(userID, peersRef, setRemoteStreams);
 
-    // Create peer with stream config
     const peer = new Peer({
       initiator,
-      // Only include stream if it exists and has active tracks
+
       stream: streamRef.current?.getTracks().length
         ? streamRef.current
         : undefined,
@@ -65,7 +51,6 @@ export const createPeer = (
       console.log(`Peer connection established with ${userID}`);
     });
 
-    // Process any pending signals
     const pendingSignals = pendingSignalsRef.current[userID] || [];
     pendingSignals.forEach((signal) => {
       try {
@@ -86,9 +71,7 @@ export const createPeer = (
   }
 };
 
-// Handle incoming signals
 export const handleSignal = (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   signal: any,
   userID: string,
   streamRef: RefObject<MediaStream | null>,
@@ -102,13 +85,11 @@ export const handleSignal = (
     let peer = peersRef.current[userID];
 
     if (!peer || peer.destroyed) {
-      // Store signal if peer doesn't exist yet
       if (!pendingSignalsRef.current[userID]) {
         pendingSignalsRef.current[userID] = [];
       }
       pendingSignalsRef.current[userID].push(signal);
 
-      // Create new peer as non-initiator
       peer = createPeer(
         userID,
         false,
@@ -127,7 +108,6 @@ export const handleSignal = (
   }
 };
 
-// Clean up a peer connection
 export const cleanupPeer = (
   userID: string,
   peersRef: RefObject<Record<string, Peer.Instance>>,
@@ -147,7 +127,6 @@ export const cleanupPeer = (
     delete peersRef.current[userID];
   }
 
-  // Always clean up remote streams for this user
   setRemoteStreams((prev) => {
     const newStreams = { ...prev };
     delete newStreams[userID];

@@ -1,13 +1,3 @@
-/**
- * Monaco editor scroll sync service.
- * Features:
- * - Scroll position tracking
- * - Follow mode support
- * - User-specific scroll syncing
- *
- * By Himanshu rana .
- */
-
 import type { RefObject } from "react";
 
 import type * as monaco from "monaco-editor";
@@ -24,7 +14,7 @@ export const updateScroll = (
   const editor = editorInstanceRef.current;
   if (!editor) return;
 
-  if (storage.getFollowUserId() !== userID) return; // Prevent duplicate scroll events
+  if (storage.getFollowUserId() !== userID) return;
 
   editor.setScrollPosition({ scrollLeft: scroll[0], scrollTop: scroll[1] });
 };

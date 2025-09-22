@@ -1,14 +1,3 @@
-/**
- * Share dialog component for sharing room links.
- * Features:
- * - Room link copying
- * - QR code generation
- * - Responsive dialog/drawer
- * - Copy success feedback
- *
- * By Himanshu rana .
- */
-
 import {
   forwardRef,
   useCallback,

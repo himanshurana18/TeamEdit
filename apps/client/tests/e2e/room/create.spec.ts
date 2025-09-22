@@ -1,13 +1,3 @@
-/**
- * End-to-end tests for room creation functionality.
- * Tests:
- * - Room creation with valid name
- * - Empty name validation
- * - Form submission
- *
- * By Himanshu rana .
- */
-
 import { expect, test } from "@playwright/test";
 
 import { createRoom } from "@/tests/utils/setup";

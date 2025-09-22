@@ -1,13 +1,3 @@
-/**
- * Form submission handler for committing changes to GitHub.
- * Features:
- * - Promise-based commit handling
- * - Toast notifications
- * - Success/error messaging
- *
- * By Himanshu rana .
- */
-
 import { ExternalLink } from "lucide-react";
 import { toast } from "sonner";
 
@@ -64,7 +54,7 @@ export const onSubmit = (
       })
       .catch((error) => {
         console.error("Commit error:", error);
-        // Resolve with null instead of rejecting to prevent uncaught errors
+
         resolve(null);
       });
   });

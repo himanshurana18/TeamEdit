@@ -1,14 +1,3 @@
-/**
- * Create room section component that provides room creation form.
- * Features:
- * - Name input validation
- * - Submit handling
- * - Loading states
- * - Error display
- *
- * By Himanshu rana .
- */
-
 import { CirclePlus } from "lucide-react";
 import type {
   FieldErrors,

@@ -1,13 +1,3 @@
-/**
- * Desktop menubar component that provides keyboard shortcuts and actions.
- * Features:
- * - Menu categories with keyboard shortcuts
- * - Panel toggle actions
- * - Editor command bindings
- *
- * By Himanshu rana .
- */
-
 import { useEffect, useRef } from "react";
 
 import {

@@ -1,14 +1,3 @@
-/**
- * Device stream control functions for webcam interface.
- * Features:
- * - Camera toggle control
- * - Permission handling
- * - Stream initialization
- * - Error handling
- *
- * By Himanshu rana .
- */
-
 import type { Dispatch, RefObject, SetStateAction } from "react";
 
 import { isMobile } from "react-device-detect";

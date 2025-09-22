@@ -1,14 +1,3 @@
-/**
- * Toolbar component that provides menu access and editor actions.
- * Features:
- * - Desktop/mobile responsive menus
- * - File handling actions
- * - Editor command access
- * - Dialog/sheet management
- *
- * By Himanshu rana .
- */
-
 import { useEffect, useRef, type Dispatch, type SetStateAction } from "react";
 
 import { Monaco } from "@monaco-editor/react";
@@ -16,7 +5,7 @@ import type * as monaco from "monaco-editor";
 
 import { REPO_URL } from "@/lib/constants";
 import { useMediaQuery } from "@/hooks/use-media-query";
-// import { AboutDialog, type AboutDialogRef } from "@/components/about-dialog";
+
 import { LeaveDialog, type LeaveDialogRef } from "@/components/leave-dialog";
 import {
   OpenFromGithubDialog,
@@ -73,7 +62,6 @@ const Toolbar = ({
   const saveToGithubDialogRef = useRef<SaveToGithubDialogRef>(null);
   const settingsSheetRef = useRef<SettingsSheetRef>(null);
   const leaveDialogRef = useRef<LeaveDialogRef>(null);
-  // const aboutDialogRef = useRef<AboutDialogRef>(null);
 
   const modKey = getOS() === "Mac OS" || getOS() === "iOS" ? "⌘" : "Ctrl";
 
@@ -234,7 +222,6 @@ const Toolbar = ({
       editor.trigger("keyboard", "editor.action.smartSelect.shrink", null);
     },
     commandPalette: () => {
-      // Timeout to prevent command palette triggering before editor is focussed
       editor.focus();
       setTimeout(() => {
         editor.trigger("keyboard", "editor.action.quickCommand", null);
@@ -268,8 +255,6 @@ const Toolbar = ({
       window.open(`${REPO_URL}/blob/main/manual.md`, "_blank");
     },
     about: () => {
-      // Uncomment the next line if AboutDialog is implemented and imported
-      // aboutDialogRef.current?.openDialog();
       window.open(`${REPO_URL}#about`, "_blank");
     },
   };

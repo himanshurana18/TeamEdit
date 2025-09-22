@@ -1,14 +1,3 @@
-/**
- * Socket.IO server entry point for TeamEdit.
- * Features:
- * - WebSocket server setup
- * - Service initialization
- * - Message handling
- * - CORS configuration
- *
- * By Himanshu rana .
- */
-
 import type { SignalData } from "simple-peer";
 import { Server } from "socket.io";
 import { App } from "uWebSockets.js";
@@ -60,7 +49,7 @@ const io = new Server({
         callback(new Error("Origin not allowed"));
       }
     },
-    methods: ["GET", "POST"], // Socket.IO needs both
+    methods: ["GET", "POST"],
     credentials: true,
   },
   transports: ["websocket", "polling"],

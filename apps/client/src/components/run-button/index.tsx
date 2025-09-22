@@ -1,14 +1,3 @@
-/**
- * Run button component for code execution control.
- * Features:
- * - Code execution triggering
- * - Execution cancellation
- * - Args/stdin input handling
- * - Status indication
- *
- * By Himanshu rana .
- */
-
 import {
   useEffect,
   useRef,

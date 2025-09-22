@@ -1,13 +1,3 @@
-/**
- * Loading skeleton component that displays animated placeholder content.
- * Features:
- * - Sequentially fading animation
- * - Indentation structure simulation
- * - Variable width placeholders
- *
- * By Himanshu rana .
- */
-
 import { Skeleton } from "@/components/ui/skeleton";
 
 export const LoadingState = () => (

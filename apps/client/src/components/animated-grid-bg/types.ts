@@ -1,13 +1,3 @@
-/**
- * Type definitions for animated grid background component.
- * Includes:
- * - Grid configuration
- * - Light animation types
- * - Style definitions
- *
- * By Himanshu rana .
- */
-
 export interface GridConfig {
   rows: number;
   cols: number;

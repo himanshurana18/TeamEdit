@@ -1,13 +1,3 @@
-/**
- * User list component that displays active room participants.
- * Features:
- * - Avatar stack display
- * - Scrollable interface
- * - Accessible markup
- *
- * By Himanshu rana .
- */
-
 import { useTheme } from "next-themes";
 
 import type { User } from "@CodeX/types/user";

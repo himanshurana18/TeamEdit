@@ -1,13 +1,3 @@
-/**
- * Loading card component shown while redirecting to room.
- * Features:
- * - Animated fade in
- * - Spinner indicator
- * - Accessible status message
- *
- * By Himanshu rana .
- */
-
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Spinner } from "@/components/spinner";
 

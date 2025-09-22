@@ -1,13 +1,3 @@
-/**
- * Open note button component that handles markdown file loading.
- * Features:
- * - File input handling
- * - Markdown content reading
- * - Socket-based sync
- *
- * By Himanshu rana .
- */
-
 import type { RefObject } from "react";
 
 import { ButtonWithTooltip, type MDXEditorMethods } from "@mdxeditor/editor";

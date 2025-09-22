@@ -1,13 +1,3 @@
-/**
- * Share button component that provides room sharing functionality.
- * Features:
- * - Share dialog trigger
- * - Accessible tooltip
- * - Room ID handling
- *
- * By Himanshu rana .
- */
-
 import { useRef } from "react";
 
 import { Share } from "lucide-react";

@@ -1,13 +1,3 @@
-/**
- * Loading overlay component shown while editor initializes.
- * Features:
- * - Centered alert with spinner
- * - Blurred backdrop
- * - Description message
- *
- * By Himanshu rana .
- */
-
 import { memo } from "react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";

@@ -1,13 +1,3 @@
-/**
- * Utility functions for GitHub repository path handling.
- * Features:
- * - Display path construction
- * - Tree data item type checking
- * - Path normalization
- *
- * By Himanshu rana .
- */
-
 import {
   itemType,
   type ExtendedTreeDataItem,
@@ -20,17 +10,14 @@ export const getDisplayPath = (
   selectedItem: ExtendedTreeDataItem | null,
   fileName: string
 ) => {
-  // Start with repo or githubUser
   let path = repo || githubUser;
 
   path += "/";
 
-  // Add branch if it exists
   if (branch) {
     path += `${branch}/`;
   }
 
-  // Add directory path from selected item if it exists
   if (selectedItem) {
     if (selectedItem.type === itemType.DIR) {
       path += `${selectedItem.path}/`;
@@ -42,7 +29,6 @@ export const getDisplayPath = (
     }
   }
 
-  // Add filename
   path += selectedItem?.name === fileName ? selectedItem.name : fileName;
 
   return path;

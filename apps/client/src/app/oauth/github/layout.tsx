@@ -1,12 +1,3 @@
-/**
- * Root layout component for the GitHub OAuth authentication flow.
- * Provides:
- * - Metadata configuration for OAuth pages
- * - Suspense boundary for async components
- *
- * By Himanshu rana .
- */
-
 import { Suspense, type ReactNode } from "react";
 import type { Metadata } from "next";
 

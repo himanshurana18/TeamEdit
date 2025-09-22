@@ -1,13 +1,3 @@
-/**
- * Confirmation dialog component for opening new files.
- * Features:
- * - Responsive dialog/drawer based on screen size
- * - File open confirmation
- * - Unsaved changes warning
- *
- * By Himanshu rana .
- */
-
 import { forwardRef, useCallback, useImperativeHandle, useState } from "react";
 
 import { useMediaQuery } from "@/hooks/use-media-query";

@@ -1,13 +1,3 @@
-/**
- * Zod validation schemas for room access forms.
- * Features:
- * - Name validation rules
- * - Room ID format validation
- * - Type inference exports
- *
- * By Himanshu rana .
- */
-
 import { z } from "zod";
 
 import { NAME_MAX_LENGTH } from "@/lib/constants";

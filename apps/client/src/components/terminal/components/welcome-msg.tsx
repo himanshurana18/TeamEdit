@@ -1,13 +1,3 @@
-/**
- * Welcome message component displayed in shared terminal.
- * Features:
- * - App logo and branding
- * - Usage instructions
- * - Terminal formatting
- *
- * By Himanshu rana .
- */
-
 import Image from "next/image";
 
 import { SITE_NAME } from "@/lib/constants";

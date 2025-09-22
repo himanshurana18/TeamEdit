@@ -1,13 +1,3 @@
-/**
- * 404 page component displayed when a route is not found.
- * Features:
- * - Error message display
- * - Return to home button
- * - Responsive layout
- *
- * By Himanshu rana .
- */
-
 "use client";
 
 import Link from "next/link";

@@ -1,8 +1,3 @@
-/**
- * Socket.IO Latency Analysis for Collaborative Editing
- * Enhanced reporting for academic evaluation
- */
-
 import fs from "fs";
 import path from "path";
 import { performance } from "perf_hooks";

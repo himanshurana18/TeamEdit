@@ -1,20 +1,7 @@
-/**
- * GitHub API route handler for fetching file content.
- * Features:
- * - Authentication verification
- * - Parameter validation
- * - Repository content retrieval
- * - Error handling
- *
- * By Himanshu rana .
- */
-
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 import { GITHUB_API_URL } from "@/lib/constants";
-
-// export const runtime = 'edge';
 
 export async function GET(request: Request) {
   try {
@@ -28,14 +15,12 @@ export async function GET(request: Request) {
       );
     }
 
-    // Parse URL parameters
     const { searchParams } = new URL(request.url);
     const repo = searchParams.get("repo");
     const branch = searchParams.get("branch");
     const path = searchParams.get("path");
     const filename = searchParams.get("filename");
 
-    // Validate required parameters
     if (!repo || !branch || !filename) {
       return NextResponse.json(
         { error: "Missing required parameters" },
@@ -43,10 +28,8 @@ export async function GET(request: Request) {
       );
     }
 
-    // Construct the file path
     const filePath = path ? `${path}/${filename}` : filename;
 
-    // Fetch file content from GitHub
     const response = await fetch(
       `${GITHUB_API_URL}/repos/${repo}/contents/${filePath}?ref=${branch}`,
       {
@@ -69,10 +52,8 @@ export async function GET(request: Request) {
       );
     }
 
-    // Get the raw content
     const content = await response.text();
 
-    // Get file metadata from GitHub
     const metadataResponse = await fetch(
       `${GITHUB_API_URL}/repos/${repo}/contents/${filePath}?ref=${branch}`,
       {

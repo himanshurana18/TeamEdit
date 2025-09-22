@@ -1,15 +1,3 @@
-/**
- * Root layout component that wraps all pages.
- * Provides global configuration and providers including:
- * - Fonts (Geist Sans and Mono)
- * - Metadata and SEO settings
- * - Theme provider
- * - Toast notifications
- * - Analytics
- *
- * By Himanshu rana .
- */
-
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 
@@ -29,8 +17,6 @@ import { Analytics } from "@/components/analytics";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import "./globals.css";
-
-// export const runtime = 'edge';
 
 export const metadata: Metadata = {
   title: {

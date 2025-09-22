@@ -1,13 +1,3 @@
-/**
- * Utility function to update loading state of tree items.
- * Features:
- * - Recursive tree traversal
- * - Loading state management
- * - Immutable state updates
- *
- * By Himanshu rana .
- */
-
 import type { Dispatch, SetStateAction } from "react";
 
 import type { ExtendedTreeDataItem } from "../types/tree";

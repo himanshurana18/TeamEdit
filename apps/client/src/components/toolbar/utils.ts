@@ -1,13 +1,3 @@
-/**
- * Utility functions for toolbar menu actions and system detection.
- * Features:
- * - OS detection
- * - Menu command handlers
- * - Error handling
- *
- * By Himanshu rana .
- */
-
 import { type Monaco } from "@monaco-editor/react";
 import type * as monaco from "monaco-editor";
 import { toast } from "sonner";

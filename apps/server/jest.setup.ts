@@ -1,13 +1,3 @@
-/**
- * Jest test setup configuration.
- * Features:
- * - Global test setup
- * - Environment configuration
- * - Helper imports
- *
- * By Himanshu rana .
- */
-
 const LOCAL_SERVER = "http://localhost:3001";
 const REMOTE_SERVER = "https://TeamEdit-server.dulapahv.dev";
 

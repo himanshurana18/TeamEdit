@@ -1,13 +1,3 @@
-/**
- * Theme provider component that enables dark/light mode support.
- * Features:
- * - System theme detection
- * - Theme persistence
- * - Theme switching
- *
- * By Himanshu rana .
- */
-
 "use client";
 
 import { ThemeProvider as NextThemesProvider } from "next-themes";

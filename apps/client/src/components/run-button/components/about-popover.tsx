@@ -1,13 +1,3 @@
-/**
- * About popover component for code execution information.
- * Features:
- * - Execution details popover
- * - Accessible tooltip
- * - Animated icon button
- *
- * By Himanshu rana .
- */
-
 import { Info } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

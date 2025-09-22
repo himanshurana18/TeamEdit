@@ -1,14 +1,3 @@
-/**
- * GitHub API utility function for merging repository folder contents.
- * Features:
- * - Recursive content merging
- * - Path-based matching
- * - Tree data transformation
- * - State updating
- *
- * By Himanshu rana .
- */
-
 import type { Dispatch, SetStateAction } from "react";
 
 import { parseError } from "@/lib/utils";
@@ -23,16 +12,13 @@ const mergeFolderContents = (
 ): ExtendedTreeDataItem[] => {
   if (!existingChildren) return newContents;
 
-  // Create a map of new contents for faster lookup
   const newContentsMap = new Map(newContents.map((item) => [item.id, item]));
 
-  // Helper function to update children recursively
   const updateChildrenRecursively = (
     items: ExtendedTreeDataItem[],
     targetPath: string
   ): ExtendedTreeDataItem[] => {
     return items.map((item) => {
-      // If this is the target folder, update its children
       if (item.path === targetPath) {
         return {
           ...item,
@@ -40,7 +26,6 @@ const mergeFolderContents = (
         };
       }
 
-      // If this item is in the new contents, update it
       if (newContentsMap.has(item.id)) {
         return {
           ...item,
@@ -48,8 +33,6 @@ const mergeFolderContents = (
         };
       }
 
-      // If this item has children and the target path is nested under it,
-      // recursively update its children
       if (
         item.children &&
         item.path &&
@@ -61,7 +44,6 @@ const mergeFolderContents = (
         };
       }
 
-      // Otherwise, keep the item as is
       return item;
     });
   };
@@ -83,7 +65,6 @@ export const fetchContents = async (
 ) => {
   if (!repo.full_name) return;
 
-  // Find the ID of the folder being expanded
   const getFolderIdFromPath = (
     items: ExtendedTreeDataItem[],
     targetPath: string
@@ -100,7 +81,6 @@ export const fetchContents = async (
     return undefined;
   };
 
-  // If there's a path, find the corresponding folder's ID
   let targetId = branch.id;
   if (path) {
     const folderId = getFolderIdFromPath(branch.children || [], path);

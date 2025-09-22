@@ -1,13 +1,3 @@
-/**
- * Editor theme selector component that manages Monaco editor themes.
- * Features:
- * - Theme synchronization with system/user preference
- * - Theme preview with CSS variable updates
- * - Theme persistence
- *
- * By Himanshu rana .
- */
-
 import { useEffect, useState } from "react";
 
 import type { Monaco } from "@monaco-editor/react";
@@ -66,9 +56,8 @@ const DEFAULT_THEMES = {
   },
 };
 
-// Function to detect system color preference
 const getSystemTheme = (): "vs-dark" | "light" => {
-  if (typeof window === "undefined") return "vs-dark"; // Default for SSR
+  if (typeof window === "undefined") return "vs-dark";
 
   return window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -80,7 +69,6 @@ const EditorThemeSettings = ({ monaco }: EditorThemeSettingsProps) => {
   const { setTheme } = useTheme();
   const [open, setOpen] = useState(false);
 
-  // Initialize with system preference if no saved theme
   const savedTheme =
     typeof localStorage !== "undefined"
       ? localStorage.getItem("editorTheme")
@@ -89,31 +77,25 @@ const EditorThemeSettings = ({ monaco }: EditorThemeSettingsProps) => {
 
   const [editorTheme, setEditorTheme] = useState(initialTheme);
 
-  // Register Monaco when the component mounts
   useEffect(() => {
     if (monaco) {
       registerMonaco(monaco);
     }
   }, [monaco]);
 
-  // Run the init function once and sync with next-themes
   useEffect(() => {
-    // Initialize editor theme
     initEditorTheme();
 
-    // Load saved theme to update the UI
     const savedTheme = localStorage.getItem("editorTheme");
     if (savedTheme) {
       setEditorTheme(savedTheme);
 
-      // Also sync with next-themes
       if (savedTheme === "vs-dark") {
         setTheme("dark");
       } else if (savedTheme in DEFAULT_THEMES) {
         setTheme("light");
       } else {
         try {
-          // eslint-disable-next-line @typescript-eslint/no-require-imports
           const themeData = require(
             `monaco-themes/themes/${themeList[savedTheme as keyof typeof themeList]}.json`
           );
@@ -123,7 +105,6 @@ const EditorThemeSettings = ({ monaco }: EditorThemeSettingsProps) => {
         }
       }
     } else {
-      // No saved theme, use system preference
       const systemTheme = getSystemTheme();
       setEditorTheme(systemTheme);
       setTheme(systemTheme === "vs-dark" ? "dark" : "light");
@@ -134,14 +115,11 @@ const EditorThemeSettings = ({ monaco }: EditorThemeSettingsProps) => {
     setEditorTheme(key);
     setOpen(false);
 
-    // Apply the theme and get the appropriate next-theme value
     const nextTheme = applyEditorTheme(key, value);
 
-    // Update next-themes
     setTheme(nextTheme);
   };
 
-  // Combine default and custom themes with explicit typing
   const themes = Object.entries({
     ...DEFAULT_THEMES,
     ...Object.fromEntries(

@@ -1,13 +1,3 @@
-/**
- * Code update service functions for the Monaco Editor.
- * Features:
- * - Edit operation handling
- * - Editor state management
- * - Change synchronization
- *
- * By Himanshu rana .
- */
-
 import type { RefObject } from "react";
 
 import type * as monaco from "monaco-editor";

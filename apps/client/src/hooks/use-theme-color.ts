@@ -1,13 +1,3 @@
-/**
- * Custom hook for managing theme color meta tag.
- * Features:
- * - Auto theme color updates
- * - Dark/light mode detection
- * - Meta tag handling
- *
- * By Himanshu rana .
- */
-
 import { useEffect } from "react";
 
 import { useTheme } from "next-themes";

@@ -1,13 +1,3 @@
-/**
- * Utility functions for editor settings management.
- * Features:
- * - Settings export to JSON
- * - Title case formatting
- * - Settings file handling
- *
- * By Himanshu rana .
- */
-
 import type { ChangeEvent } from "react";
 
 import type * as monaco from "monaco-editor";
@@ -15,14 +5,12 @@ import { toast } from "sonner";
 
 import { EDITOR_SETTINGS_KEY } from "@/lib/constants";
 
-// Convert camelCase to Title Case
 export const formatTitle = (key: string): string => {
   return key
     .replace(/([A-Z])/g, " $1")
     .replace(/^./, (str) => str.toUpperCase());
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const exportSettings = (settings: Record<string, any>) => {
   try {
     const blob = new Blob([JSON.stringify(settings, null, 2)], {

@@ -1,11 +1,3 @@
-/**
- * Utility functions for handling user display names and initials:
- * - Get initials from full name
- * - Format display name with "you" suffix
- *
- * By Himanshu rana .
- */
-
 import type { User } from "@CodeX/types/user";
 
 /**

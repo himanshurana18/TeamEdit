@@ -1,13 +1,3 @@
-/**
- * Utility functions for code execution control.
- * Features:
- * - Execution cancellation
- * - Output formatting
- * - Socket messaging
- *
- * By Himanshu rana .
- */
-
 import type { Dispatch, RefObject, SetStateAction } from "react";
 
 import { Monaco } from "@monaco-editor/react";
@@ -151,7 +141,6 @@ export const executeCode = async (
     setOutput((currentOutput) => [...currentOutput, resultWithTimestamp]);
     socket.emit(CodeServiceMsg.UPDATE_TERM, resultWithTimestamp);
   } catch (error) {
-    // Don't show error message if the request was cancelled
     if (error instanceof DOMException && error.name === "AbortError") {
       return;
     }

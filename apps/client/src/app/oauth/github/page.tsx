@@ -1,12 +1,3 @@
-/**
- * OAuth callback page component that handles GitHub authentication response.
- * Displays loading state and communicates authentication result to parent window.
- * Features:
- * - Status message display
- * - Parent window messaging
- * - Automatic window handling
- */
-
 "use client";
 
 import { useEffect } from "react";
@@ -22,7 +13,6 @@ export default function Page() {
 
   useEffect(() => {
     if (window.opener) {
-      // Send message to parent window
       window.opener.postMessage(
         {
           type: "github-oauth",

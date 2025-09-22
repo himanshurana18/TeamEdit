@@ -1,13 +1,3 @@
-/**
- * Settings button component that opens editor configuration panel.
- * Features:
- * - Sheet trigger button
- * - Editor settings access
- * - Accessible tooltip
- *
- * By Himanshu rana .
- */
-
 import { useRef } from "react";
 
 import type { Monaco } from "@monaco-editor/react";

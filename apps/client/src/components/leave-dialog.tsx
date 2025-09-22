@@ -1,13 +1,3 @@
-/**
- * Confirmation dialog component for leaving room.
- * Features:
- * - Responsive dialog/drawer based on screen size
- * - Room leaving confirmation
- * - Leave action handling
- *
- * By Himanshu rana .
- */
-
 import { forwardRef, useCallback, useImperativeHandle, useState } from "react";
 
 import { useMediaQuery } from "@/hooks/use-media-query";
@@ -50,7 +40,6 @@ const LeaveDialog = forwardRef<LeaveDialogRef>((props, ref) => {
   const openDialog = useCallback(() => setIsOpen(true), []);
   const closeDialog = useCallback(() => setIsOpen(false), []);
 
-  // Expose openDialog and closeDialog to the parent component
   useImperativeHandle(ref, () => ({
     openDialog,
     closeDialog,

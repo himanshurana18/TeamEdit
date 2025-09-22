@@ -1,14 +1,3 @@
-/**
- * Terminal output component that displays execution results.
- * Features:
- * - Timestamped output
- * - Color-coded messages
- * - Execution time display
- * - Error output handling
- *
- * By Himanshu rana .
- */
-
 import type { ExecutionResult } from "@CodeX/types/terminal";
 
 import { cn } from "@/lib/utils";

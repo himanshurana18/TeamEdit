@@ -1,13 +1,3 @@
-/**
- * Type definitions for server status monitoring with BetterStack.
- * Includes:
- * - Service status types
- * - API response types
- * - Status attributes
- *
- * By Himanshu rana .
- */
-
 export type ServiceStatus = {
   color: string;
   label: string;

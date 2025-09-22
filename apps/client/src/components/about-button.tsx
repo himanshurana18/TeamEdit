@@ -1,13 +1,3 @@
-/**
- * About button component that opens the application info dialog.
- * Features:
- * - Info icon button
- * - Dialog trigger
- * - Accessibility support
- *
- * By Himanshu rana .
- */
-
 "use client";
 
 import { useRef } from "react";
@@ -22,8 +12,6 @@ import {
 } from "@/components/ui/tooltip";
 
 const AboutButton = () => {
-  // const aboutDialogRef = useRef<AboutDialogRef>(null);
-
   return (
     <>
       <Tooltip>
@@ -35,7 +23,6 @@ const AboutButton = () => {
             aria-label="About"
             type="button"
             aria-haspopup="dialog"
-            // onClick={() => aboutDialogRef.current?.openDialog()}
           >
             <Info className="size-5" />
           </Button>

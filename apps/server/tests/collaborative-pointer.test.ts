@@ -1,10 +1,3 @@
-/**
- * Tests for measuring pointer tracking latency in collaborative editing.
- * Measures synchronization speed of pointer movements between users.
- *
- * By Himanshu rana .
- */
-
 import fs from "fs";
 import path from "path";
 import { performance } from "perf_hooks";

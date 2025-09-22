@@ -1,11 +1,3 @@
-/**
- * Sentry error monitoring initialization for server and edge runtimes.
- * Features:
- * - Server-side monitoring
- * - Edge runtime monitoring
- * - Environment detection
- 
-/** */
 import * as Sentry from "@sentry/nextjs";
 
 export async function register() {

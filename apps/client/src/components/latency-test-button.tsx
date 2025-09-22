@@ -1,13 +1,3 @@
-/**
- * Navigation button component that links to latency testing page.
- * Features:
- * - Icon button with tooltip
- * - Route change handling
- * - Accessible label
- *
- * By Himanshu rana .
- */
-
 "use client";
 
 import { useRouter } from "next/navigation";

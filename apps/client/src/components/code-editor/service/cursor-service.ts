@@ -1,13 +1,3 @@
-/**
- * Monaco editor cursor management utilities.
- * Features:
- * - Multi-user cursor tracking
- * - Viewport line visibility checks
- * - Cursor style handling
- *
- * By Himanshu rana .
- */
-
 import type { RefObject } from "react";
 
 import type { Monaco } from "@monaco-editor/react";
@@ -20,11 +10,8 @@ import { userMap } from "@/lib/services/user-map";
 
 import { createCursorStyle } from "../utils";
 
-const VIEWPORT_PADDING = 0.1; // pixels to consider as padding when checking if line is in viewport
+const VIEWPORT_PADDING = 0.1;
 
-/**
- * Checks if a line number is within the editor's viewport
- */
 const isLineInViewport = (
   monaco: Monaco,
   editor: monaco.editor.IStandaloneCodeEditor,
@@ -34,11 +21,9 @@ const isLineInViewport = (
   const visibleRanges = editor.getVisibleRanges();
   if (!visibleRanges.length) return false;
 
-  // Get viewport information
   const viewportTop = visibleRanges[0].startLineNumber;
   const viewportBottom = visibleRanges[visibleRanges.length - 1].endLineNumber;
 
-  // Convert padding to approximate line numbers
   const lineHeight = editor.getOption(monaco.editor.EditorOption.lineHeight);
   const paddingLines = Math.ceil(padding / lineHeight);
 
@@ -71,10 +56,9 @@ export const updateCursor = (
   const monacoInstance = monacoInstanceRef.current;
   if (!editor || !monacoInstance) return;
 
-  // Prevent duplicate cursor events
   if (storage.getFollowUserId() === userID) {
     const cursorLine = cursor[0];
-    // Only center the line if it's outside the viewport
+
     if (!isLineInViewport(monacoInstance, editor, cursorLine)) {
       editor.revealLineInCenter(cursorLine);
     }
@@ -82,7 +66,6 @@ export const updateCursor = (
 
   const name = userMap.get(userID) || "Unknown";
 
-  // Clean up previous decoration
   cursorDecorationsRef.current[userID]?.clear();
 
   const { backgroundColor, color } = userMap.getColors(userID);
@@ -90,7 +73,6 @@ export const updateCursor = (
 
   const decorations: monaco.editor.IModelDeltaDecoration[] = [];
 
-  // Add cursor decoration
   decorations.push({
     range: {
       startLineNumber: cursor[0],
@@ -108,7 +90,6 @@ export const updateCursor = (
     },
   });
 
-  // Add selection decoration if there is a selection
   const hasSelection =
     cursor[2] !== undefined &&
     cursor[3] !== undefined &&
@@ -139,10 +120,8 @@ export const updateCursor = (
     });
   }
 
-  // Create decorations collection
   const cursorDecoration = editor.createDecorationsCollection(decorations);
 
-  // Update styles
   const styleId = `cursor-style-${userID}`;
   let styleElement = document.getElementById(styleId);
   if (!styleElement) {
@@ -159,10 +138,8 @@ export const updateCursor = (
     hasSelection
   );
 
-  // Store decoration
   cursorDecorationsRef.current[userID] = cursorDecoration;
 
-  // Remove any existing timeout if present
   if (cleanupTimeoutsRef.current[userID]) {
     clearTimeout(cleanupTimeoutsRef.current[userID]);
     delete cleanupTimeoutsRef.current[userID];

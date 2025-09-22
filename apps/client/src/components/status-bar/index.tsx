@@ -1,13 +1,3 @@
-/**
- * Status bar component that displays editor information.
- * Features:
- * - Current language display
- * - Cursor position tracking
- * - Selection feedback
- *
- * By Himanshu rana .
- */
-
 import { memo } from "react";
 
 import { Monaco } from "@monaco-editor/react";

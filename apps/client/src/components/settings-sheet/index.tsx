@@ -1,14 +1,3 @@
-/**
- * Settings dialog component for Monaco editor configuration.
- * Features:
- * - Theme selection
- * - Editor preferences
- * - GitHub connection
- * - Settings import/export
- *
- * By Himanshu rana .
- */
-
 import {
   forwardRef,
   useCallback,
@@ -232,7 +221,7 @@ const SettingsSheet = forwardRef<SettingsSheetRef, SettingsSheetProps>(
               <Label className="text-base" id="editor-section">
                 Editor Settings
               </Label>
-              <div className="text-muted-foreground text-sm">
+              {/* <div className="text-muted-foreground text-sm">
                 Customize the appearance of the editor and other settings. For
                 more information on editor settings, refer to the{" "}
                 <a
@@ -245,7 +234,7 @@ const SettingsSheet = forwardRef<SettingsSheetRef, SettingsSheetProps>(
                   Monaco Editor documentation
                 </a>
                 .
-              </div>
+              </div> */}
             </div>
             <EditorThemeSettings
               monaco={monaco}

@@ -1,10 +1,3 @@
-/**
- * Tests for measuring terminal output synchronization latency.
- * Tests different types of outputs and execution results.
- *
- * By Himanshu rana .
- */
-
 import fs from "fs";
 import path from "path";
 import { performance } from "perf_hooks";

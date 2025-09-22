@@ -1,13 +1,3 @@
-/**
- * Menu configuration constants and icon imports.
- * Features:
- * - Menu item definitions
- * - Icon imports
- * - Keyboard shortcut mapping
- *
- * By Himanshu rana .
- */
-
 import {
   ArrowBigDownDash,
   ArrowBigUpDash,

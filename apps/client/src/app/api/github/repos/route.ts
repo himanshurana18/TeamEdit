@@ -1,27 +1,13 @@
-/**
- * GitHub API route handler for searching user repositories.
- * Features:
- * - Search query handling
- * - Authentication validation
- * - Repository filtering
- * - Sorting and ordering
- *
- * By Himanshu rana .
- */
-
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 import { GITHUB_API_URL } from "@/lib/constants";
-
-// export const runtime = 'edge';
 
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const query = searchParams.get("q");
 
-    // Get access token from cookies
     const cookieStore = await cookies();
     const accessToken = cookieStore.get("access_token");
 
@@ -32,12 +18,10 @@ export async function GET(request: Request) {
       );
     }
 
-    // Construct the GitHub API URL with search query and sort parameters
     const apiUrl = query
       ? `${GITHUB_API_URL}/search/repositories?q=${encodeURIComponent(query)}+in:name+user:@me&sort=updated&order=desc`
       : `${GITHUB_API_URL}/user/repos?sort=updated&order=desc`;
 
-    // Fetch repositories from GitHub API
     const response = await fetch(apiUrl, {
       headers: {
         Authorization: `Bearer ${accessToken.value}`,
@@ -56,7 +40,6 @@ export async function GET(request: Request) {
     const data = await response.json();
     const repositories = query ? data.items : data;
 
-    // Return the repositories data
     return NextResponse.json({
       repositories,
       total: repositories.length,

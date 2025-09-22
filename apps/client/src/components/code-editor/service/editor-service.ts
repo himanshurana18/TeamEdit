@@ -1,14 +1,3 @@
-/**
- * Monaco editor service functions for editor lifecycle and configuration.
- * Features:
- * - Theme management
- * - Editor initialization
- * - Event handling
- * - Socket integration
- *
- * By Himanshu rana .
- */
-
 import type { Dispatch, RefObject, SetStateAction } from "react";
 
 import type { Monaco } from "@monaco-editor/react";
@@ -75,7 +64,6 @@ export const handleOnMount = (
 
   editor.getModel()?.setEOL(monaco.editor.EndOfLineSequence.LF);
 
-  // Disable unwanted validations
   monaco.languages.typescript.typescriptDefaults.setDiagnosticsOptions({
     diagnosticCodesToIgnore: [
       // 2304, // Ignore "Cannot find name" error
@@ -91,7 +79,6 @@ export const handleOnMount = (
       selected: editor.getModel()?.getValueLengthInRange(e.selection) || 0,
     });
 
-    // If the selection is empty, send only the cursor position
     if (
       e.selection.startLineNumber === e.selection.endLineNumber &&
       e.selection.startColumn === e.selection.endColumn
@@ -113,7 +100,7 @@ export const handleOnMount = (
   });
 
   const scrollDisposable = editor.onDidScrollChange((e) => {
-    if (storage.getFollowUserId()) return; // If following another user, do not emit scroll events
+    if (storage.getFollowUserId()) return;
     socket.emit(ScrollServiceMsg.UPDATE_SCROLL, [e.scrollLeft, e.scrollTop]);
   });
 

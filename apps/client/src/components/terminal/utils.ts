@@ -1,13 +1,3 @@
-/**
- * Utility functions for formatting terminal output.
- * Features:
- * - Execution time formatting
- * - Timestamp formatting
- * - Message type coloring
- *
- * By Himanshu rana .
- */
-
 import {
   ExecutionResultType,
   type ExecutionResult,
@@ -46,20 +36,17 @@ export const getMessageColor = (type?: ExecutionResultType) => {
 const formatLogEntry = (result: ExecutionResult): string => {
   const timestamp = formatTimestamp(result.timestamp ?? new Date());
 
-  // Add execution details if available
   const executionDetails =
     result.language && result.version && result.executionTime
       ? ` - ${result.language} v${result.version} (${result.executionTime}ms)`
       : "";
 
-  // For error messages
   if (result.run.stderr) {
     return `[${timestamp}]${executionDetails}\n${result.run.stdout || "Error:"} ${result.run.stderr}${
       result.run.code ? `\nProcess exited with code ${result.run.code}` : ""
     }`;
   }
 
-  // For regular output
   const message = result.run.stdout ? result.run.stdout.trimEnd() : "No output";
 
   return `[${timestamp}]${executionDetails}\n${message}`;

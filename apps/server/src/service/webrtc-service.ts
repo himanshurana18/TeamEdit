@@ -1,13 +1,3 @@
-/**
- * WebRTC service handlers for peer-to-peer video streaming.
- * Features:
- * - Stream signaling
- * - Camera state sync
- * - User notification
- *
- * By Himanshu rana .
- */
-
 import type { SignalData } from "simple-peer";
 import type { Socket } from "socket.io";
 

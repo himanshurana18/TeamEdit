@@ -1,20 +1,7 @@
-/**
- * GitHub API route handler for committing code changes.
- * Provides:
- * - GitHub commit creation endpoint
- * - Authentication validation
- * - Base64 content handling
- * - File path management
- *
- * By Himanshu rana .
- */
-
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 import { GITHUB_API_URL } from "@/lib/constants";
-
-// export const runtime = 'edge';
 
 interface CommitRequest {
   repo: string;
@@ -22,7 +9,7 @@ interface CommitRequest {
   path: string;
   filename: string;
   commitMessage: string;
-  content: string; // Base64 encoded content
+  content: string;
 }
 
 export async function POST(request: Request) {
@@ -40,10 +27,8 @@ export async function POST(request: Request) {
     const body: CommitRequest = await request.json();
     const { repo, branch, path, filename, commitMessage, content } = body;
 
-    // Construct the file path
     const filePath = path ? `${path}/${filename}` : filename;
 
-    // Get the current file (if it exists) to get its SHA
     const getCurrentFile = async () => {
       try {
         const response = await fetch(
@@ -68,10 +53,8 @@ export async function POST(request: Request) {
       }
     };
 
-    // Get the current file's SHA if it exists
     const currentSha = await getCurrentFile();
 
-    // Prepare the request body
     const commitBody = {
       message: commitMessage,
       content,
@@ -79,7 +62,6 @@ export async function POST(request: Request) {
       ...(currentSha && { sha: currentSha }),
     };
 
-    // Create or update the file
     const response = await fetch(
       `${GITHUB_API_URL}/repos/${repo}/contents/${filePath}`,
       {

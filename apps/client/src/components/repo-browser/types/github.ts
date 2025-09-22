@@ -1,14 +1,3 @@
-/**
- * Type definitions for GitHub API response data.
- * Includes:
- * - Repository information
- * - Branch data
- * - Content metadata
- * - Commit response
- *
- * By Himanshu rana .
- */
-
 import { itemType } from "./tree";
 
 export type GithubRepo = {

@@ -1,14 +1,3 @@
-/**
- * Language selector component for Monaco editor.
- * Features:
- * - Language switching
- * - Search and filtering
- * - Synchronized language state
- * - Mobile support
- *
- * By Himanshu rana .
- */
-
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
 
 import { Monaco } from "@monaco-editor/react";
@@ -60,7 +49,6 @@ const LanguageSelection = memo(
     const [open, setOpen] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState(defaultLanguage);
 
-    // Memoize languages array to prevent unnecessary recalculations
     const languages = useMemo(() => {
       if (!monaco) return [];
 
@@ -89,7 +77,6 @@ const LanguageSelection = memo(
       [editor, monaco, languages]
     );
 
-    // Sync with editor's current language
     useEffect(() => {
       if (!editor || !monaco) return;
 
@@ -106,7 +93,6 @@ const LanguageSelection = memo(
       socket.emit(CodeServiceMsg.SYNC_LANG);
       socket.on(CodeServiceMsg.UPDATE_LANG, handleLanguageChange);
 
-      // Get initial language
       const currentLanguage = model.getLanguageId();
       const language = monaco.languages
         .getLanguages()
@@ -115,7 +101,6 @@ const LanguageSelection = memo(
         setSelectedLanguage(language.aliases[0]);
       }
 
-      // Listen for language changes
       const disposable = model.onDidChangeLanguage((e) => {
         const newLanguage = monaco.languages
           .getLanguages()
