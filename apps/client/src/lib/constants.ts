@@ -1,14 +1,3 @@
-/**
- * Configuration constants for environment, URLs, OAuth and application settings.
- * Features:
- * - Environment detection
- * - API endpoint URLs
- * - OAuth credentials
- * - App metadata
- *
- * By Himanshu rana .
- */
-
 export const IS_DEV_ENV =
   process.env.VERCEL_ENV === "development" ||
   process.env.NEXT_PUBLIC_ENV === "development" ||
@@ -16,12 +5,12 @@ export const IS_DEV_ENV =
 
 export const BASE_CLIENT_URL = IS_DEV_ENV
   ? "http://localhost:3000"
-  : "https://TeamEdit.dulapahv.dev";
+  : "https://teamedit.up.railway.app";
 export const BASE_SERVER_URL = IS_DEV_ENV
   ? "http://localhost:3001"
   : "server-production-acc3.up.railway.app";
 
-export const STATUS_URL = "https://TeamEdit-status.dulapahv.dev";
+export const STATUS_URL = "https://teamedit.up.railway.app";
 export const KASCA_SERVER_MONITOR_ID = "2887417";
 
 export const GITHUB_API_URL = "https://api.github.com";
