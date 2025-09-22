@@ -3,7 +3,7 @@ const ALLOWED_ORIGINS = [
   "https://TeamEdit.vercel.app",
   "https://dev-TeamEdit.dulapahv.dev",
   "http://localhost:3000",
-  "https://client-production-9eb0.up.railway.app",
+  "https://teamedit.up.railway.app/",
 ] as const;
 
 const isVercelDeployment = (origin: string): boolean => {
